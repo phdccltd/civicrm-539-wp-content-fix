@@ -6,7 +6,7 @@ Plugin URI: https://github.com/phdccltd/civicrm-539-wp-content-fix
 GitHub Plugin URI: phdccltd/civicrm-539-wp-content-fix
 Description: Plugin to fix CiviCRM 5.39+ WordPress content issue
 Author: Chris Cant, PHDCC
-Version: 1.0
+Version: 1.1
 Author URI: https://www.phdcc.com/
 License: GPL2
 */
