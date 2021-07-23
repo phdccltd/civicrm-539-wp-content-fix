@@ -14,7 +14,7 @@ License: GPL2
 // This file must not accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-add_action('wp', 'civicrm_539_wp_content_fix_basepage_handler', 20, 1);
+add_action('wp', 'civicrm_539_wp_content_fix_basepage_handler', 20, 1); // >10 so executed after CiviCRM
 
 function civicrm_539_wp_content_fix_basepage_handler($wp) {
 
