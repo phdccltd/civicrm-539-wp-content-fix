@@ -6,8 +6,7 @@ only displaying the default CiviCRM WordPress page: "Do not delete this page. Pa
 This plugin reverses this change, so install it if you see this problem.
 
 In CiviCRM for WordPress, the "the_content" filter over-writes the default output with the (cached) CiviCRM output, eg the contribution page HTML.
-In 5.39.0, the CiviCRM filter is removed during its first run 
-- see [`basepage_render`](https://github.com/civicrm/civicrm-wordpress/blob/master/includes/civicrm.basepage.php#L523) -
+In 5.39.0, the CiviCRM filter is removed during its first run - see [`basepage_render`](https://github.com/civicrm/civicrm-wordpress/blob/master/includes/civicrm.basepage.php#L523) -
 so subsequent calls to get "the_content" do not return the expected output. 
 This plugin changes the functality back to pre-5.39.0 by ensuring that the CiviCRM content is returned for every call to the "the_content" filter.
 
