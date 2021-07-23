@@ -10,10 +10,14 @@ In 5.39.0, the CiviCRM filter is removed during its first run - see [`basepage_r
 so subsequent calls to get "the_content" do not return the expected output. 
 This plugin changes the functionality back to pre-5.39.0 by ensuring that the CiviCRM content is returned for every call to the "the_content" filter.
 
-The code in `civicrm_539_wp_content_fix_basepage_handler()` is run for every WordPress page at priority 20 (ie after the CiviCRM equivalent 
-`basepage_handler()` in `civicrm.basepage.php`). The code removes the CiviCRM "the_content" filter and installs its own ie
-`civicrm_539_wp_content_fix_basepage_render()`.  When this is run, it calls the CiviCRM handler `basepage_render()` and returns the given HTML.
+The code in `civicrm_539_wp_content_fix_init()` is run when the CiviCRM plugin has completed its `init`. 
+The code removes the CiviCRM "the_content" filter and installs its own ie `civicrm_539_wp_content_fix_basepage_render()`.  
+
+When this is run, it calls the CiviCRM handler `basepage_render()` and gets the CiviCRM HTML.
+When `civicrm_539_wp_content_fix_basepage_render()` is run, it may not be on a CiviCRM page, so the CiviCRM HTML is only returned if it not empty.
 Note that the CiviCRM `basepage_render()` will try to remove itself as a filter but this will be ignored by WordPress.
+
+You can use the https://github.com/phdccltd/civicrm-wp-content-test test plugin to generate legitimate calls which will cause the 5.39 issue.
 
 # Installation
 
